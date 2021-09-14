@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -64,5 +66,7 @@ dependencies {
 
     //compose navigation
     implementation("androidx.navigation:navigation-compose:2.4.0-alpha02")
+
+
 
 }
