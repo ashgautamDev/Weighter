@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Weighter</string>
+    <string name="description">\"We help you to track your weight and keep tracking \"</string>
+    <string name="welcometext">Welcome to Weighter</string>
 </resources>
