@@ -17,9 +17,8 @@ import com.ashish.weighter.ui.theme.textDark
 fun BottomNavigationBar(navController: NavController) {
 
     val items = listOf(
-        Screens.MyWeight,
         Screens.Target,
-        Screens.AddWeight
+        Screens.MyWeight
     )
 
     BottomNavigation(

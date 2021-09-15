@@ -22,10 +22,10 @@ fun Chip( selected: Boolean, text: String, modifier: Modifier = Modifier) {
     }
     Surface(
         color = when {
-            selected -> MaterialTheme.colors.onSurface.copy(
+            selected -> MaterialTheme.colors.background.copy(
                 alpha = if (MaterialTheme.colors.isLight) 0.7f else 1f
             )
-            else -> MaterialTheme.colors.onSurface.copy(
+            else -> MaterialTheme.colors.background.copy(
                 alpha = if (MaterialTheme.colors.isLight) 0.04f else 0.07f
             )
         },

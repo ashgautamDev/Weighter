@@ -1,9 +1,11 @@
-package com.ashish.weighter.ui.view.screens
+package com.ashish.weighter.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,11 +29,11 @@ import com.ashish.weighter.ui.theme.textDark
 fun AddWeightScreen(navController: NavController, viewModel: WeightViewmodel) {
 
     var currentWeight by remember {
-        mutableStateOf("")
+        mutableStateOf("0")
     }
 
     var currentDate by remember {
-        mutableStateOf("")
+        mutableStateOf("Default Date")
     }
 
     Column(modifier = Modifier
@@ -49,7 +51,7 @@ fun AddWeightScreen(navController: NavController, viewModel: WeightViewmodel) {
             .clickable {
                 navController.navigate(Screens.MyWeight.route)
             }, color = background)
-        WeightData(currentWeight)
+        WeightData(currentWeight , currentDate)
         Button(
             onClick = {
                 // Save Weight to Local Database .
@@ -77,9 +79,12 @@ fun AddWeightScreen(navController: NavController, viewModel: WeightViewmodel) {
 
 
 @Composable
-fun WeightData(weight: String) {
+fun WeightData(weight: String , date : String) {
     var currentWeight by remember {
         mutableStateOf(weight)
+    }
+    var currentDate by remember {
+        mutableStateOf(date)
     }
 
     Column(horizontalAlignment = Alignment.CenterHorizontally,
@@ -97,6 +102,12 @@ fun WeightData(weight: String) {
         TextField(value = currentWeight,
             onValueChange = { currentWeight = it },
             modifier = Modifier.background(color = MaterialTheme.colors.primary))
+
+        TextField(value =  currentDate,
+            onValueChange = { currentDate = it },
+            modifier = Modifier.background(color = MaterialTheme.colors.primary) , leadingIcon = {
+                Icon(imageVector = Icons.Default.DateRange, contentDescription =null )
+            })
         Chip(option1 = "KG", option2 = "LBS")
     }
 

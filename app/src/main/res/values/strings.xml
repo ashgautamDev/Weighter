@@ -2,4 +2,8 @@
     <string name="app_name">Weighter</string>
     <string name="description">\"We help you to track your weight and keep tracking \"</string>
     <string name="welcometext">Welcome to Weighter</string>
+
+    <string name="text_empty_wish_list">Your Weight history is empty!</string>
+    <string name="text_empty_explore">Add Regularly and track your weight</string>
+    <string name="text_back_to_home">Lets Add This Time</string>
 </resources>
