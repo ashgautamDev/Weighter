@@ -80,6 +80,7 @@ fun AddWeightScreen(navController: NavController, viewModel: WeightViewmodel) {
 
 @Composable
 fun WeightData(weight: String , date : String) {
+
     var currentWeight by remember {
         mutableStateOf(weight)
     }
