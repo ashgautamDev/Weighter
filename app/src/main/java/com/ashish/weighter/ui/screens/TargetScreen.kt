@@ -34,6 +34,7 @@ fun TargetScreen(viewModel: WeightViewmodel , navController: NavController ) {
             is ViewState.Success -> {
                // pass result to Card
               WeightHistoryList(weight = result.weight, navController = navController)
+
             }
 
         }

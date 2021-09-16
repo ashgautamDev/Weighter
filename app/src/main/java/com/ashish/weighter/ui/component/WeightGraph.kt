@@ -3,6 +3,7 @@ package com.ashish.weighter.ui.component
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.AbsoluteRoundedCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.LinearProgressIndicator
@@ -28,7 +29,9 @@ fun WeightGraph() {
         .fillMaxWidth()
         .height(300.dp),
         border = BorderStroke(1.dp, color = textColor),
-        backgroundColor = background) {
+        backgroundColor = background ,
+        shape = AbsoluteRoundedCornerShape(25)
+    ) {
         Row(horizontalArrangement = Arrangement.spacedBy(15.dp) , modifier = Modifier.padding(16.dp)) {
             Column( Modifier.fillMaxHeight(1f).padding(bottom = 30.dp),verticalArrangement = Arrangement.SpaceEvenly) {
                 TextNo(70)
@@ -55,7 +58,7 @@ fun WeightGraph() {
 
 @Composable
 fun TextNo(value : Int) {
-    Text(text = value.toString() , color =  textDark.copy(alpha = .8f) , fontSize = 16.sp , fontWeight = FontWeight.SemiBold)
+    Text(text = value.toString() , color =  textDark.copy(alpha = .7f) , fontSize = 16.sp , fontWeight = FontWeight.SemiBold)
 
 }
 
@@ -68,9 +71,9 @@ fun DayProgress( day : String , dayProgress : Float) {
            .background(color = Color.Blue.copy(alpha = .6f) , shape = RoundedCornerShape(100)))
         Spacer(modifier = Modifier.heightIn(15.dp))
         Text(text = day.uppercase(),
-            color = textDark.copy(alpha = .7f),
+            color = textDark.copy(alpha = .5f),
             fontWeight = FontWeight.SemiBold,
-            fontSize = 16.sp)
+            fontSize = 14.sp)
 
 
     }

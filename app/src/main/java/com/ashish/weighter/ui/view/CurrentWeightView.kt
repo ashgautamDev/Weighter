@@ -18,12 +18,7 @@ import com.ashish.weighter.ui.theme.background
 import com.ashish.weighter.ui.theme.textDark
 
 @Composable
-fun CurrentWeightInfoView(currentWeight: String, modifier: Modifier) {
-
-    val weight by remember {
-        mutableStateOf(currentWeight)
-    }
-
+fun CurrentWeightInfoView(currentWeight: String = "0", modifier: Modifier) {
 
     Column(modifier = modifier
         .background(color = background)
@@ -36,7 +31,7 @@ fun CurrentWeightInfoView(currentWeight: String, modifier: Modifier) {
             fontWeight = FontWeight.Bold)
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
 
-            Text(text = weight + "Kg", fontSize = 28.sp, fontWeight = FontWeight.SemiBold)
+            Text(text = currentWeight + "Kg", fontSize = 28.sp, fontWeight = FontWeight.SemiBold)
             DropDownMenu()
 
         }

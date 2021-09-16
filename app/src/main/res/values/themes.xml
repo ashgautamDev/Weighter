@@ -22,4 +22,10 @@
     <style name="Theme.Weighter.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Weighter.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CalenderViewCustom" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="colorAccent">@color/purple_500</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSurface">@color/purple_200</item>
+    </style>
 </resources>

@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.FabPosition
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
@@ -29,6 +30,7 @@ import com.ashish.weighter.ui.view.YourProgressView
 import com.ashish.weighter.utils.WeightState
 
 
+
 @Composable
 fun MyWeightScreen(viewModel: WeightViewmodel, navController: NavController) {
 
@@ -46,9 +48,9 @@ fun MyWeightScreen(viewModel: WeightViewmodel, navController: NavController) {
                 contentDescription = null,
                 modifier = Modifier
                     .size(56.dp)
-                    .background(color = MaterialTheme.colors.primary)
+                    .background(color = background)
                     .clickable { navController.navigate(Screens.AddWeight.route) })
-        },
+        }, floatingActionButtonPosition = FabPosition.Center ,isFloatingActionButtonDocked = true,
         content = { padding ->
             Column(modifier = Modifier.padding(top = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)) {
