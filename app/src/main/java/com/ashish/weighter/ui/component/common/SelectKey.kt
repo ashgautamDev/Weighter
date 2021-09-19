@@ -15,17 +15,16 @@ fun Chip(
     option1: String,
     option2: String,
 ) {
-    var opt1 by remember {
+    val opt1 by remember {
         mutableStateOf(true)
     }
-    var opt2 by remember {
+    val opt2 by remember {
         mutableStateOf(false)
     }
-val optionSelected = opt1 != opt2
     Row {
-        Chip(selected = opt1, text = option1, modifier = Modifier.clickable {optionSelected })
+        Chip(selected = opt1, text = option1, modifier = Modifier)
         Spacer(modifier = Modifier.width(10.dp))
-        Chip(selected = opt2, text = option2, modifier = Modifier.clickable {optionSelected })
+        Chip(selected = opt2, text = option2, modifier = Modifier)
     }
 
 }

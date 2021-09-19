@@ -1,7 +1,5 @@
 package com.ashish.weighter.utils
 
-import com.ashish.weighter.model.Weight
-
 sealed class WeightState {
 
     // It Represents different states for fetching Current Weight

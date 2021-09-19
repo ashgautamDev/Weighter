@@ -1,10 +1,10 @@
 package com.ashish.weighter.ui.screens.addweight
 
 
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.AbsoluteRoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -19,22 +19,23 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.ashish.weighter.navigation.Screens
+import com.ashish.weighter.navigation.AddScreen
+import com.ashish.weighter.navigation.NavScreen
 import com.ashish.weighter.ui.theme.background
 import com.ashish.weighter.ui.theme.textColor
 import com.ashish.weighter.ui.theme.textDark
-import com.ashish.weighter.utils.showDatePicker
 import java.time.LocalDate
 
 
 @ExperimentalComposeUiApi
 @Composable
-fun AddWeightScreen(navController: NavController, viewModel: AddWeightViewModel , activity : AppCompatActivity) {
+fun AddWeightScreen(navController: NavController, viewModel: AddWeightViewModel) {
     val context = LocalContext.current
 
     Column(modifier = Modifier
@@ -46,26 +47,27 @@ fun AddWeightScreen(navController: NavController, viewModel: AddWeightViewModel 
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Text(text = "Cancel", fontSize = 16.sp, modifier = Modifier
+        Text(text = "Cancel", fontSize = 20.sp, modifier = Modifier
             .padding(16.dp)
             .align(alignment = Alignment.Start)
             .clickable {
-                navController.navigate(Screens.MyWeight.route)
-            }, color = background)
+                navController.navigate(NavScreen.MyWeight.route)
+            }, color = background ,
+        fontWeight = FontWeight.SemiBold)
 
-        WeightData(viewModel , activity )
+        WeightData(viewModel)
 
         Button(
             onClick = {
-
                 viewModel.addWeight(context)
-                navController.navigate(Screens.MyWeight.route)
+                navController.navigate(AddScreen.MainScreen.route)
             },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             colors = ButtonDefaults.buttonColors(backgroundColor = background,
-                contentColor = textDark)
+                contentColor = textDark) ,
+            shape = AbsoluteRoundedCornerShape(10)
         ) {
 
             Text(text = "Done", fontSize = 18.sp)
@@ -79,7 +81,8 @@ fun AddWeightScreen(navController: NavController, viewModel: AddWeightViewModel 
 
 @ExperimentalComposeUiApi
 @Composable
-fun WeightData(viewModel: AddWeightViewModel , activity : AppCompatActivity) {
+fun WeightData(viewModel: AddWeightViewModel) {
+
 
     val selDate = LocalDate.now()
     val date = viewModel.dateState.value
@@ -114,8 +117,10 @@ fun WeightData(viewModel: AddWeightViewModel , activity : AppCompatActivity) {
             horizontalArrangement = Arrangement.Center) {
 
             Icon(imageVector = Icons.Default.DateRange,
-                    contentDescription = null,
-                    modifier = Modifier.clickable{ showDatePicker(activity)})
+                contentDescription = null,
+                modifier = Modifier
+//                        .clickable{ showDatePicker(act)}
+            )
             Spacer(modifier = Modifier.width(20.dp))
 
             Text(text = date)

@@ -30,7 +30,7 @@ fun WeightGraph() {
         .height(300.dp),
         border = BorderStroke(1.dp, color = textColor),
         backgroundColor = background ,
-        shape = AbsoluteRoundedCornerShape(25)
+        shape = AbsoluteRoundedCornerShape(10)
     ) {
         Row(horizontalArrangement = Arrangement.spacedBy(15.dp) , modifier = Modifier.padding(16.dp)) {
             Column( Modifier.fillMaxHeight(1f).padding(bottom = 30.dp),verticalArrangement = Arrangement.SpaceEvenly) {

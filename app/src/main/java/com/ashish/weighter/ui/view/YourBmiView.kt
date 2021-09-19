@@ -2,7 +2,7 @@ package com.ashish.weighter.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.AbsoluteRoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -19,14 +19,14 @@ import com.ashish.weighter.ui.theme.progressColor
 import com.ashish.weighter.ui.theme.textDark
 
 
-
 @Composable
 fun YourBmiView() {
 
     val myBMI = "23.0"
     Card(modifier = Modifier
         .fillMaxWidth(),
-        shape = RoundedCornerShape(25), backgroundColor = progressColor.copy(alpha = 0.9f)) {
+        shape = AbsoluteRoundedCornerShape(10),
+        backgroundColor = progressColor.copy(alpha = 0.9f)) {
         Column(modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp)) {
@@ -35,11 +35,12 @@ fun YourBmiView() {
                 fontSize = 8.sp,
                 fontWeight = FontWeight.Bold)
             Spacer(modifier = Modifier.height(6.dp))
+
             Row(modifier = Modifier
-                .fillMaxWidth() , verticalAlignment = Alignment.Bottom) {
+                .fillMaxWidth(), verticalAlignment = Alignment.Bottom) {
                 Text(text = myBMI, fontWeight = FontWeight.Bold, fontSize = 16.sp)
                 Spacer(modifier = Modifier.width(4.dp))
-                Text(text = "Normal", fontWeight = FontWeight.Light, fontSize = 8.sp ,
+                Text(text = "Normal", fontWeight = FontWeight.Light, fontSize = 8.sp,
                     modifier = Modifier.padding(2.dp))
             }
             Spacer(modifier = Modifier.height(6.dp))
@@ -67,11 +68,11 @@ fun YourBmiView() {
             Spacer(modifier = Modifier.height(6.dp))
             Row(modifier = Modifier
                 .fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-              BmiValue(value = 15)
-              BmiValue(value = 18)
-              BmiValue(value = 25)
-              BmiValue(value =30 )
-              BmiValue(value = 40)
+                BmiValue(value = 15)
+                BmiValue(value = 18)
+                BmiValue(value = 25)
+                BmiValue(value = 30)
+                BmiValue(value = 40)
             }
 
         }
@@ -79,7 +80,7 @@ fun YourBmiView() {
 }
 
 @Composable
-fun BmiValue( value : Int) {
+fun BmiValue(value: Int) {
     Text(text = value.toString(), fontWeight = FontWeight.SemiBold, fontSize = 9.sp)
 }
 

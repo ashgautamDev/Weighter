@@ -1,7 +1,6 @@
-package com.ashish.weighter.database
+package com.ashish.weighter.persistance
 
 import androidx.room.*
-import com.ashish.weighter.model.Weight
 import kotlinx.coroutines.flow.Flow
 
 

@@ -1,4 +1,4 @@
-package com.ashish.weighter.model
+package com.ashish.weighter.persistance
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

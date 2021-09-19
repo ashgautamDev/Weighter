@@ -2,6 +2,7 @@ package com.ashish.weighter.ui.view
 
 import android.widget.ProgressBar
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.AbsoluteRoundedCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.LinearProgressIndicator
@@ -28,7 +29,7 @@ fun YourProgressView() {
 val progressBar = 0.4f
     Card(modifier = Modifier
         .fillMaxWidth(),
-        shape = RoundedCornerShape(25), backgroundColor = progressColor.copy(alpha = 0.9f)) {
+        shape = AbsoluteRoundedCornerShape(10), backgroundColor = progressColor.copy(alpha = 0.9f)) {
         Column(modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)) {

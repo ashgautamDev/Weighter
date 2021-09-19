@@ -1,6 +1,6 @@
 package com.ashish.weighter.utils
 
-import com.ashish.weighter.model.Weight
+import com.ashish.weighter.persistance.Weight
 
 sealed class ViewState {
 

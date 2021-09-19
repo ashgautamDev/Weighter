@@ -9,11 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.ashish.weighter.model.Weight
+import com.ashish.weighter.persistance.Weight
 import com.ashish.weighter.ui.component.WeightCard
 
 @Composable
-fun WeightHistoryList(weight : List<Weight> , navController: NavController) {
+fun WeightHistoryList(weight : List<Weight>, navController: NavController) {
 
 
     LazyColumn(

@@ -1,7 +1,7 @@
 package com.ashish.weighter.repository
 
-import com.ashish.weighter.database.WeightDao
-import com.ashish.weighter.model.Weight
+import com.ashish.weighter.persistance.WeightDao
+import com.ashish.weighter.persistance.Weight
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

@@ -2,8 +2,8 @@ package com.ashish.weighter.di
 
 import android.content.Context
 import androidx.room.Room
-import com.ashish.weighter.database.WeightDao
-import com.ashish.weighter.database.WeightDatabase
+import com.ashish.weighter.persistance.WeightDao
+import com.ashish.weighter.persistance.WeightDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

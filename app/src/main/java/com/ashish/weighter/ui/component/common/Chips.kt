@@ -38,7 +38,7 @@ fun Chip( selected: Boolean, text: String, modifier: Modifier = Modifier) {
             width = 1.dp,
             color = when {
                 selected -> MaterialTheme.colors.surface
-                else -> if (MaterialTheme.colors.isLight) Color.LightGray else Color.DarkGray
+                else -> if (MaterialTheme.colors.isLight) MaterialTheme.colors.primary else MaterialTheme.colors.primary
             }
         ),
         modifier = modifier.clickable { isSelected =! isSelected }
@@ -46,10 +46,10 @@ fun Chip( selected: Boolean, text: String, modifier: Modifier = Modifier) {
         Text(
             text = text,
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.body2,
+            style = MaterialTheme.typography.subtitle2,
             modifier = Modifier.padding(
-                vertical = 8.dp,
-                horizontal = 12.dp,
+                vertical = 6.dp,
+                horizontal = 8.dp,
             )
         )
     }

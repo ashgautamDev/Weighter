@@ -9,7 +9,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.ashish.weighter.navigation.Screens
+import com.ashish.weighter.navigation.NavScreen
 import com.ashish.weighter.ui.theme.background
 import com.ashish.weighter.ui.theme.textDark
 
@@ -17,8 +17,8 @@ import com.ashish.weighter.ui.theme.textDark
 fun BottomNavigationBar(navController: NavController) {
 
     val items = listOf(
-        Screens.Target,
-        Screens.MyWeight
+        NavScreen.Target,
+        NavScreen.MyWeight
     )
 
     BottomNavigation(

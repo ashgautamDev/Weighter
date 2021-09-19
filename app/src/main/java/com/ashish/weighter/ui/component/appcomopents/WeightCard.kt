@@ -15,7 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ashish.weighter.model.Weight
+import com.ashish.weighter.persistance.Weight
 import com.ashish.weighter.ui.theme.WeighterTheme
 
 @Composable

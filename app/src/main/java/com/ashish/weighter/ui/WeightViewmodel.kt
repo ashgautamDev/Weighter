@@ -2,7 +2,7 @@ package com.ashish.weighter.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ashish.weighter.model.Weight
+import com.ashish.weighter.persistance.Weight
 import com.ashish.weighter.repository.WeightRepository
 import com.ashish.weighter.utils.ViewState
 import com.ashish.weighter.utils.WeightState
@@ -10,6 +10,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
+
 
 
 @HiltViewModel
@@ -25,16 +27,6 @@ class WeightViewmodel @Inject() constructor(private val repository: WeightReposi
     val uiState = _uiState.asStateFlow()
     val weightState = _currentWeightState.asStateFlow()
 
-    fun getCurrentWeight() = viewModelScope.launch {
-        repository.getCurrentWeight().collect{ currentWeight->
-            if (currentWeight.isEmpty()){
-                _currentWeightState.value = WeightState.Empty
-            } else
-            {
-                _currentWeightState.value = WeightState.Success(currentWeight)
-            }
-        }
-    }
 
     fun insertWeight(weight: Weight) = viewModelScope.launch {
         repository.addWeight(weight)
@@ -58,6 +50,15 @@ class WeightViewmodel @Inject() constructor(private val repository: WeightReposi
                     _uiState.value = ViewState.Success(weights)
                 }
 
+            }
+
+            repository.getCurrentWeight().collect{ currentWeight->
+                if (currentWeight.isEmpty()){
+                    _currentWeightState.value = WeightState.Empty
+                } else
+                {
+                    _currentWeightState.value = WeightState.Success(currentWeight)
+                }
             }
         }
     }
