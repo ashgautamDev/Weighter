@@ -6,12 +6,18 @@ import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.ui.graphics.vector.ImageVector
 
 
-sealed class NavScreen(var route: String, var icon: ImageVector, var title: String) {
+//sealed class NavScreen(var route: String, var icon: ImageVector, var title: String) {
+//
+//    object MyWeight : NavScreen("home", Icons.Default.AccountBox, "My Weight")
+//    object Target : NavScreen("history", Icons.Default.AccountCircle, "History")
+//}
 
-    object MyWeight : NavScreen("home", Icons.Default.AccountBox, "My Weight")
-    object Target : NavScreen("history", Icons.Default.AccountCircle, "History")
+// NavTabs
+enum class NavScreen(val label : String, val icon: ImageVector) {
+    RECORD("record", Icons.Default.AccountCircle),
+    WEIGHT("Home",  Icons.Default.AccountBox)
+
 }
-
 
 sealed class AddScreen(var route: String) {
 

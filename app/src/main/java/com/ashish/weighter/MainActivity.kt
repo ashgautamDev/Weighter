@@ -6,6 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.navigation.compose.rememberNavController
+import com.ashish.weighter.navigation.NavGraph
 import com.ashish.weighter.ui.screens.MainScreen
 import com.ashish.weighter.ui.theme.WeighterTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,7 +22,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             WeighterTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    MainScreen()
+               NavGraph()
                 }
             }
         }

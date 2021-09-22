@@ -1,4 +1,4 @@
-package com.ashish.weighter.ui.screens
+package com.ashish.weighter.ui.screens.home
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement

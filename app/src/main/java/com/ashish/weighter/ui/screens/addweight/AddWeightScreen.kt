@@ -51,7 +51,7 @@ fun AddWeightScreen(navController: NavController, viewModel: AddWeightViewModel)
             .padding(16.dp)
             .align(alignment = Alignment.Start)
             .clickable {
-                navController.navigate(NavScreen.MyWeight.route)
+                navController.navigate(AddScreen.MainScreen.route)
             }, color = background ,
         fontWeight = FontWeight.SemiBold)
 

@@ -1,4 +1,4 @@
-package com.ashish.weighter.ui.screens
+package com.ashish.weighter.ui.screens.home
 
 
 import android.widget.Toast
@@ -18,6 +18,8 @@ import com.ashish.weighter.ui.WeightViewmodel
 import com.ashish.weighter.ui.component.AppFab
 import com.ashish.weighter.ui.component.TopBar
 import com.ashish.weighter.ui.component.WeightGraph
+import com.ashish.weighter.ui.screens.MainActions
+import com.ashish.weighter.ui.screens.YourBmiView
 import com.ashish.weighter.ui.theme.background
 import com.ashish.weighter.ui.view.CurrentWeightInfoView
 import com.ashish.weighter.ui.view.YourProgressView
@@ -25,7 +27,7 @@ import com.ashish.weighter.utils.WeightState
 
 
 @Composable
-fun MyWeightScreen(viewModel: WeightViewmodel, navController: NavController) {
+fun MyWeightScreen(viewModel: WeightViewmodel, mainActions: MainActions , navController: NavController) {
 
 
     val context = LocalContext.current
@@ -39,7 +41,7 @@ fun MyWeightScreen(viewModel: WeightViewmodel, navController: NavController) {
 
         },
         floatingActionButton = {
-            AppFab(navController)
+            AppFab(){mainActions.addWeight}
         },
         floatingActionButtonPosition = FabPosition.Center,
         isFloatingActionButtonDocked = true,
@@ -76,8 +78,6 @@ fun MyWeightScreen(viewModel: WeightViewmodel, navController: NavController) {
             }
         }
     )
-
-
 }
 
 
