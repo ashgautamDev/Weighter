@@ -7,14 +7,15 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.ashish.weighter.navigation.AddScreen
 import com.ashish.weighter.navigation.NavScreen
-import com.ashish.weighter.navigation.backHandler
 import com.ashish.weighter.ui.WeightViewmodel
+import com.ashish.weighter.ui.component.AppFab
 import com.ashish.weighter.ui.screens.home.MyWeightScreen
 import com.ashish.weighter.ui.screens.home.TargetScreen
+import com.ashish.weighter.ui.theme.textDark
 
 
 @ExperimentalComposeUiApi
@@ -23,10 +24,19 @@ fun MainScreen(
     viewModel: WeightViewmodel,
     action: MainActions,
     selectedTab: MutableState<NavScreen>,
+    navController: NavController,
 ) {
-    val navController = rememberNavController()
 
     Scaffold(
+
+        floatingActionButton = {
+            AppFab() {
+//                mainActions.addWeight
+                navController.navigate(AddScreen.AddWeight.route)
+            }
+        },
+        floatingActionButtonPosition = FabPosition.Center,
+        isFloatingActionButtonDocked = true,
         bottomBar = {
             BottomNavigation(
                 modifier = Modifier,
@@ -44,7 +54,7 @@ fun MainScreen(
                             Icon(imageVector = tab.icon, contentDescription = null)
                         },
                         unselectedContentColor = Color.LightGray,
-                        selectedContentColor = MaterialTheme.colors.primary,
+                        selectedContentColor = textDark,
                     )
                 }
             }
@@ -53,15 +63,15 @@ fun MainScreen(
         val modifier = Modifier.padding(it)
         when (selectedTab.value) {
             NavScreen.RECORD -> TargetScreen(viewModel, navController)
-            NavScreen.WEIGHT -> MyWeightScreen(viewModel, action , navController)
+            NavScreen.WEIGHT -> MyWeightScreen(viewModel, action, navController)
 
         }
 
     }
-    backHandler(
-        enabled = selectedTab.value != NavScreen.WEIGHT,
-        onBack = { selectedTab.value = NavScreen.WEIGHT }
-    )
+//    backHandler(
+//        enabled = selectedTab.value != NavScreen.WEIGHT,
+//        onBack = { selectedTab.value = NavScreen.WEIGHT }
+//    )
 
 }
 

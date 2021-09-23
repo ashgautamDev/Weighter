@@ -2,9 +2,8 @@ package com.ashish.weighter.utils
 
 import android.view.ContextThemeWrapper
 import android.widget.CalendarView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.*
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
@@ -15,7 +14,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.window.Dialog
@@ -132,12 +130,13 @@ fun CustomCalendarView(onDateSelected: (LocalDate) -> Unit) {
 }
 
 
-//fun showDatePicker(activity: AppCompatActivity  ){
-//    val picker = MaterialDatePicker.Builder.datePicker().build()
-//    activity?.let {
-//        picker.show(it.supportFragmentManager, picker.toString())
-//        picker.addOnPositiveButtonClickListener {
-//            null
-//        }
-//    }
-//}
+fun showDatePicker(
+    activity: AppCompatActivity
+//    updatedDate: (Long?) -> Unit
+) {
+    val picker = MaterialDatePicker.Builder.datePicker().build()
+
+    picker.show(activity.supportFragmentManager, picker.toString())
+    picker.addOnPositiveButtonClickListener {
+    }
+}

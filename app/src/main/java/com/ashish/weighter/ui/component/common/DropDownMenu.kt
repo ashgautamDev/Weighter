@@ -33,8 +33,8 @@ fun DropDownMenu() {
     val items = listOf("Week", "Month", "Year")
     var selectedIndex by remember { mutableStateOf(0) }
     Box(modifier = Modifier
-        .background(shape = RoundedCornerShape(50), color = MaterialTheme.colors.background)
-        .width(96.dp)
+        .background(shape = RoundedCornerShape(50), color = background)
+        .width(100.dp)
         .height(32.dp)
         .shadow(elevation = 1.dp , shape = RoundedCornerShape(50))
         .animateContentSize(animationSpec = tween(durationMillis = 300,
@@ -73,7 +73,7 @@ fun DropDownMenu() {
                     modifier = Modifier
                         .wrapContentWidth()
                         .background(
-                            Color.Red)
+                            Color.White)
                 ) {
                     items.forEachIndexed { index, weightUnit ->
                         DropdownMenuItem(onClick = {

@@ -11,23 +11,31 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.ashish.weighter.navigation.AddScreen
 import com.ashish.weighter.ui.WeightViewmodel
 import com.ashish.weighter.ui.component.AppFab
 import com.ashish.weighter.ui.component.TopBar
 import com.ashish.weighter.ui.component.WeightGraph
 import com.ashish.weighter.ui.screens.MainActions
 import com.ashish.weighter.ui.screens.YourBmiView
+import com.ashish.weighter.ui.screens.addweight.WeightData
 import com.ashish.weighter.ui.theme.background
 import com.ashish.weighter.ui.view.CurrentWeightInfoView
 import com.ashish.weighter.ui.view.YourProgressView
 import com.ashish.weighter.utils.WeightState
+import kotlinx.coroutines.flow.collect
 
 
 @Composable
-fun MyWeightScreen(viewModel: WeightViewmodel, mainActions: MainActions , navController: NavController) {
+fun MyWeightScreen(
+    viewModel: WeightViewmodel,
+    mainActions: MainActions,
+    navController: NavController,
+) {
 
 
     val context = LocalContext.current
@@ -40,38 +48,11 @@ fun MyWeightScreen(viewModel: WeightViewmodel, mainActions: MainActions , navCon
             TopBar()
 
         },
-        floatingActionButton = {
-            AppFab(){mainActions.addWeight}
-        },
-        floatingActionButtonPosition = FabPosition.Center,
-        isFloatingActionButtonDocked = true,
         content = { padding ->
 
             Column(modifier = Modifier.padding(top = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)) {
-                when (val result = viewModel.weightState.collectAsState().value) {
-                    is WeightState.Empty -> {
-
-                        // Show null state of Weight
-                        CurrentWeightInfoView(currentWeight = "0",
-                            modifier = Modifier.padding(padding))
-
-                    }
-                    is WeightState.Error -> {
-                        Toast.makeText(
-                            context,
-                            "Error ${result.exception}",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                    is WeightState.Success -> {
-                        // pass Current Weight
-                        CurrentWeightInfoView(currentWeight = result.weight,
-                            modifier = Modifier.padding(padding))
-
-                    }
-
-                }
+                CurrentWeightInfoView("74", modifier = Modifier)
                 WeightGraph()
                 YourBmiView()
                 YourProgressView()

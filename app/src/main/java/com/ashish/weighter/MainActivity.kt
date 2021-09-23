@@ -21,9 +21,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             WeighterTheme {
-                Surface(color = MaterialTheme.colors.background) {
-               NavGraph()
-                }
+                NavGraph()
+
             }
         }
     }

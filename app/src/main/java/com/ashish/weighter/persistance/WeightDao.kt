@@ -17,7 +17,7 @@ interface WeightDao {
     @Update
     suspend fun updateWeight(weight: Weight)
 
-    @Query("SELECT * FROM `Weights Table` ORDER BY id ASC ")
+    @Query("SELECT * FROM `Weights Table` ORDER BY id DESC ")
     fun getAllWeights() : Flow<List<Weight>>
 
     @Query("SELECT `My Current Weight` FROM `Weights Table` ORDER BY `id` DESC LIMIT 1")

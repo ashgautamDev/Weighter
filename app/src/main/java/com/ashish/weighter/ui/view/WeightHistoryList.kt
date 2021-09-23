@@ -21,7 +21,7 @@ fun WeightHistoryList(weight : List<Weight>, navController: NavController) {
             start = 46.dp,
             top = 12.dp,
             end = 0.dp,
-            bottom = 12.dp
+            bottom = 48.dp
         )
     ) {
 
