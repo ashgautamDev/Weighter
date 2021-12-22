@@ -15,6 +15,7 @@ import com.ashish.weighter.ui.screens.MainActions
 import com.ashish.weighter.ui.screens.MainScreen
 import com.ashish.weighter.ui.screens.addweight.AddWeightScreen
 import com.ashish.weighter.ui.screens.addweight.AddWeightViewModel
+import com.ashish.weighter.ui.screens.onboarding.StarterScreen
 
 @ExperimentalComposeUiApi
 @Composable
@@ -24,10 +25,13 @@ fun NavGraph() {
     val selectedTab = remember { mutableStateOf(NavScreen.WEIGHT) }
 
 
-    NavHost(navController, startDestination = AddScreen.MainScreen.route) {
+    NavHost(navController, startDestination = Screens.SplashScreen.route) {
+        composable(Screens.SplashScreen.route){
+            StarterScreen(navController = navController)
+        }
 
 
-        composable(AddScreen.MainScreen.route) {
+        composable(Screens.MainScreen.route) {
 
             val viewModel: WeightViewmodel = viewModel(
                 factory = HiltViewModelFactory(LocalContext.current, it)
@@ -36,7 +40,7 @@ fun NavGraph() {
         }
 
 
-        composable(AddScreen.AddWeight.route) {
+        composable(Screens.AddWeight.route) {
             val viewModel: AddWeightViewModel = viewModel(
                 factory = HiltViewModelFactory(LocalContext.current, it)
             )

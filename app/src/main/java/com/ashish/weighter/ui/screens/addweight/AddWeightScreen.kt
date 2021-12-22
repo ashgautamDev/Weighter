@@ -3,7 +3,6 @@ package com.ashish.weighter.ui.screens.addweight
 
 import android.text.TextUtils
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -30,11 +29,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.ashish.weighter.navigation.AddScreen
+import com.ashish.weighter.navigation.Screens
 import com.ashish.weighter.ui.theme.background
 import com.ashish.weighter.ui.theme.textColor
 import com.ashish.weighter.ui.theme.textDark
-import com.ashish.weighter.utils.showDatePicker
 import java.time.LocalDate
 
 
@@ -58,7 +56,7 @@ fun AddWeightScreen(navController: NavController, viewModel: AddWeightViewModel)
                 .padding(16.dp)
                 .align(alignment = Alignment.Start)
                 .clickable {
-                    navController.navigate(AddScreen.MainScreen.route)
+                    navController.navigate(Screens.MainScreen.route)
                 }, color = background,
             fontWeight = FontWeight.SemiBold
         )
@@ -69,7 +67,7 @@ fun AddWeightScreen(navController: NavController, viewModel: AddWeightViewModel)
             onClick = {
                 if (inputCheck(viewModel.weightState.value)) {
                     viewModel.addWeight()
-                    navController.navigate(AddScreen.MainScreen.route)
+                    navController.navigate(Screens.MainScreen.route)
                     Toast.makeText(context, "Weight Added", Toast.LENGTH_SHORT).show()
 
                 } else {

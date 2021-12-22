@@ -1,33 +1,27 @@
 package com.ashish.weighter.ui.screens.home
 
 
-import android.widget.Toast
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.FabPosition
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.ashish.weighter.navigation.AddScreen
 import com.ashish.weighter.ui.WeightViewmodel
-import com.ashish.weighter.ui.component.AppFab
 import com.ashish.weighter.ui.component.TopBar
 import com.ashish.weighter.ui.component.WeightGraph
 import com.ashish.weighter.ui.screens.MainActions
 import com.ashish.weighter.ui.screens.YourBmiView
-import com.ashish.weighter.ui.screens.addweight.WeightData
 import com.ashish.weighter.ui.theme.background
 import com.ashish.weighter.ui.view.CurrentWeightInfoView
 import com.ashish.weighter.ui.view.YourProgressView
-import com.ashish.weighter.utils.WeightState
-import kotlinx.coroutines.flow.collect
 
 
 @Composable
@@ -37,6 +31,7 @@ fun MyWeightScreen(
     navController: NavController,
 ) {
 
+    val scrollableState = rememberScrollState()
 
     val context = LocalContext.current
     Scaffold(
@@ -50,7 +45,9 @@ fun MyWeightScreen(
         },
         content = { padding ->
 
-            Column(modifier = Modifier.padding(top = 16.dp),
+            Column(modifier = Modifier
+                .padding(top = 16.dp)
+                .scrollable(scrollableState , orientation = Orientation.Vertical),
                 verticalArrangement = Arrangement.spacedBy(16.dp)) {
                 CurrentWeightInfoView("74", modifier = Modifier)
                 WeightGraph()

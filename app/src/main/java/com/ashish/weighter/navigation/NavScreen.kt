@@ -19,9 +19,10 @@ enum class NavScreen(val label : String, val icon: ImageVector) {
 
 }
 
-sealed class AddScreen(var route: String) {
+sealed class Screens(var route: String) {
 
-    object MainScreen : AddScreen("mainScreen")
-    object AddWeight : AddScreen("addWeight")
+    object MainScreen : Screens("mainScreen")
+    object SplashScreen : Screens("splashScreen")
+    object AddWeight : Screens("addWeight")
 
 }

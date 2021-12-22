@@ -13,7 +13,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ashish.weighter.R
-import com.ashish.weighter.navigation.AddScreen
+import com.ashish.weighter.navigation.Screens
 
 @Composable
 fun EmptyScreen(navController: NavController) {
@@ -39,7 +39,7 @@ fun EmptyScreen(navController: NavController) {
         )
         Spacer(modifier = Modifier.height(24.dp))
         Button(
-            onClick = { navController.navigate(AddScreen.AddWeight.route) }, colors = ButtonDefaults.buttonColors(
+            onClick = { navController.navigate(Screens.AddWeight.route) }, colors = ButtonDefaults.buttonColors(
                 backgroundColor = MaterialTheme.colors.surface,
                 contentColor = MaterialTheme.colors.onSurface
             )

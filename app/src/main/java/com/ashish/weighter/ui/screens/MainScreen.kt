@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
-import com.ashish.weighter.navigation.AddScreen
+import com.ashish.weighter.navigation.Screens
 import com.ashish.weighter.navigation.NavScreen
 import com.ashish.weighter.ui.WeightViewmodel
 import com.ashish.weighter.ui.component.AppFab
@@ -32,7 +32,7 @@ fun MainScreen(
         floatingActionButton = {
             AppFab() {
 //                mainActions.addWeight
-                navController.navigate(AddScreen.AddWeight.route)
+                navController.navigate(Screens.AddWeight.route)
             }
         },
         floatingActionButtonPosition = FabPosition.Center,
@@ -79,6 +79,6 @@ fun MainScreen(
 class MainActions(navController: NavHostController) {
 
     val addWeight = {
-        navController.navigate(AddScreen.AddWeight.route)
+        navController.navigate(Screens.AddWeight.route)
     }
 }
