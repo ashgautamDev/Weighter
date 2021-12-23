@@ -64,7 +64,7 @@ fun StarterScreen(
         verticalArrangement = Arrangement.SpaceEvenly,
         modifier = Modifier.fillMaxSize()
     ) {
-        Image(painter = painterResource(id = R.drawable.ic_login_vector), contentDescription = null)
+        Image(painter = painterResource(id = R.drawable.ic_login_vector), contentDescription = "Logo")
 
         // Welcome Text
         Text( modifier = Modifier.align(Alignment.CenterHorizontally) ,

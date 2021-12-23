@@ -14,6 +14,7 @@ android {
         targetSdk = 30
         versionCode = 1
         versionName = "1.0"
+        multiDexEnabled = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -45,6 +46,11 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = rootProject.extra["compose_version"] as String
     }
+    packagingOptions {
+        resources {
+            excludes += ("/META-INF/{AL2.0,LGPL2.1}")
+        }
+    }
 
 }
 
@@ -63,11 +69,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}")
     debugImplementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
-    // Needed for createComposeRule, but not createAndroidComposeRule:
-    debugImplementation("androidx.compose.ui:ui-test-manifest:${rootProject.extra["compose_version"]}")
-    // Testing
-    androidTestImplementation("io.mockk:mockk-android:1.10.5")
 
+    debugImplementation("androidx.compose.ui:ui-test-manifest:${rootProject.extra["compose_version"]}")
 
     //compose navigation
     implementation("androidx.navigation:navigation-compose:${rootProject.extra["composeNavigationVersion"]}")
@@ -97,5 +100,14 @@ dependencies {
     implementation("androidx.hilt:hilt-common:${rootProject.extra["hiltCompilerVersion"]}")
     kapt("com.google.dagger:hilt-compiler:${rootProject.extra["hiltVersion"]}")
 
+    // Instrumented Unit Tests
+    androidTestImplementation ("junit:junit:4.13.2")
+    androidTestImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0")
+    androidTestImplementation ("androidx.arch.core:core-testing:2.1.0")
+    androidTestImplementation ("com.google.truth:truth:1.1.3")
+    androidTestImplementation ("com.squareup.okhttp3:mockwebserver:4.9.1")
+    androidTestImplementation ("io.mockk:mockk-android:1.10.5")
+    androidTestImplementation ("com.linkedin.dexmaker:dexmaker-mockito:2.28.1")
 
+    implementation ("com.android.support:multidex:2.0.1")
 }
